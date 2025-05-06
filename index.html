@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sacramento Elite Furniture Cleaning | Professional Upholstery Care</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(22, 101, 52, 0.9) 0%, rgba(16, 185, 129, 0.8) 100%);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #10b981;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        .animate-bounce-slow {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-3">SEC</div>
+                <h1 class="text-xl font-bold text-gray-800">Sacramento Elite Cleaning</h1>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-600 hover:text-emerald-600">Home</a>
+                <a href="#services" class="nav-link text-gray-600 hover:text-emerald-600">Services</a>
+                <a href="#about" class="nav-link text-gray-600 hover:text-emerald-600">About</a>
+                <a href="#testimonials" class="nav-link text-gray-600 hover:text-emerald-600">Testimonials</a>
+                <a href="#contact" class="nav-link text-gray-600 hover:text-emerald-600">Contact</a>
+            </nav>
+            <div class="hidden md:block">
+                <a href="#contact" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-full font-medium transition duration-300">Book Now</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <div class="flex flex-col space-y-3">
+                <a href="#home" class="text-gray-600 hover:text-emerald-600 py-2">Home</a>
+                <a href="#services" class="text-gray-600 hover:text-emerald-600 py-2">Services</a>
+                <a href="#about" class="text-gray-600 hover:text-emerald-600 py-2">About</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-emerald-600 py-2">Testimonials</a>
+                <a href="#contact" class="text-gray-600 hover:text-emerald-600 py-2">Contact</a>
+                <a href="#contact" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-full font-medium text-center transition duration-300">Book Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Professional Furniture Cleaning in Sacramento</h1>
+                <p class="text-xl mb-8">Revitalize your furniture with our eco-friendly cleaning solutions. We bring back the beauty and extend the life of your upholstery.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#contact" class="bg-white text-emerald-600 hover:bg-gray-100 px-8 py-3 rounded-full font-bold text-center transition duration-300">Schedule Service</a>
+                    <a href="tel:+19165551234" class="border-2 border-white hover:bg-white hover:text-emerald-600 px-8 py-3 rounded-full font-bold text-center transition duration-300">
+                        <i class="fas fa-phone mr-2"></i> (916) 555-1234
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Professional cleaning furniture" class="rounded-lg shadow-xl w-full max-w-md">
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section class="bg-gray-50 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+                <div class="flex items-center">
+                    <i class="fas fa-shield-alt text-emerald-600 text-3xl mr-3"></i>
+                    <span class="font-medium">Certified Professionals</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-leaf text-emerald-600 text-3xl mr-3"></i>
+                    <span class="font-medium">Eco-Friendly Solutions</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-star text-emerald-600 text-3xl mr-3"></i>
+                    <span class="font-medium">5-Star Rated Service</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-clock text-emerald-600 text-3xl mr-3"></i>
+                    <span class="font-medium">Same Day Availability</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Premium Cleaning Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We specialize in restoring all types of furniture to their original beauty using advanced techniques and safe cleaning products.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556911220-e15f29a6bfff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Upholstery Cleaning" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-emerald-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-couch text-emerald-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Upholstery Cleaning</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Deep cleaning for all fabric furniture including sofas, chairs, and sectionals. Removes dirt, stains, and allergens.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
+                                <span>Stain removal</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
+                                <span>Odor elimination</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
+                                <span>Fabric protection</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="text-emerald-600 font-medium hover:text-emerald-700 inline-flex items-center">
+                            Learn more <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Leather Cleaning" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-emerald-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-tshirt text-emerald-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Leather Care</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Specialized cleaning and conditioning for leather furniture to prevent cracking and maintain suppleness.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
+                                <span>Gentle cleaning</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
+                                <span>Conditioning treatment</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
+                                <span>UV protection</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="text-emerald-600 font-medium hover:text-emerald-700 inline-flex items-center">
+                            Learn more <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Mattress Cleaning" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-emerald-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-bed text-emerald-600 text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold">Mattress Cleaning</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Sanitize and refresh your mattress to eliminate dust mites, allergens, and odors for better sleep hygiene.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
+                                <span>Allergen removal</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
+                                <span>Stain treatment</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
+                                <span>Sanitization</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="text-emerald-600 font-medium hover:text-emerald-700 inline-flex items-center">
+                            Learn more <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Why Choose Sacramento Elite Cleaning</h2>
+                    <p class="text-xl text-gray-600 mb-8">We're committed to delivering exceptional results with every cleaning service. Here's what sets us apart:</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-full bg-emerald-100 text-emerald-600">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium">Certified Experts</h3>
+                                <p class="text-gray-600">Our technicians are IICRC certified with extensive training in fabric and leather care.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-full bg-emerald-100 text-emerald-600">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium">Eco-Friendly Solutions</h3>
+                                <p class="text-gray-600">We use green-certified cleaning products that are safe for your family and pets.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-full bg-emerald-100 text-emerald-600">
+                                    <i class="fas fa-truck"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium">Mobile Service</h3>
+                                <p class="text-gray-600">We come to you with our fully equipped vans, saving you time and hassle.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-full bg-emerald-100 text-emerald-600">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium">Satisfaction Guarantee</h3>
+                                <p class="text-gray-600">If you're not completely satisfied, we'll re-clean at no additional charge.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 relative">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Professional cleaner at work" class="rounded-lg w-full">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-emerald-600 text-white p-6 rounded-lg shadow-lg w-64">
+                        <div class="text-4xl font-bold mb-2">15+</div>
+                        <div class="text-lg">Years of Experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Don't just take our word for it. Here's what Sacramento homeowners have to say about our services.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-gray-50 p-8 rounded-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah J.">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium">Sarah J.</h3>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">"I was amazed at how clean my white sofa looked after Sacramento Elite Cleaning worked on it. They removed stains I thought were permanent. The technician was professional and explained everything clearly."</p>
+                    <div class="text-sm text-gray-500">East Sacramento</div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-gray-50 p-8 rounded-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael T.">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium">Michael T.</h3>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">"Our leather sectional looks brand new after their treatment. They arrived on time, were very careful with our furniture, and left no mess behind. Will definitely use them again!"</p>
+                    <div class="text-sm text-gray-500">Land Park</div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-gray-50 p-8 rounded-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/65.jpg" alt="Jennifer L.">
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium">Jennifer L.</h3>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">"As someone with allergies, I appreciate how thorough they were with my mattress cleaning. My sleep has improved dramatically since they treated my bedroom furniture. Highly recommend!"</p>
+                    <div class="text-sm text-gray-500">Midtown</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-emerald-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Refresh Your Furniture?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Contact us today to schedule your professional furniture cleaning service in Sacramento.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#contact" class="bg-white text-emerald-600 hover:bg-gray-100 px-8 py-3 rounded-full font-bold transition duration-300">Get a Free Quote</a>
+                <a href="tel:+19165551234" class="border-2 border-white hover:bg-white hover:text-emerald-600 px-8 py-3 rounded-full font-bold transition duration-300">
+                    <i class="fas fa-phone mr-2"></i> Call Now: (916) 555-1234
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Contact Us</h2>
+                    <p class="text-xl text-gray-600 mb-8">Have questions or ready to book a service? Reach out to us using the form or contact details below.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-full bg-emerald-100 text-emerald-600">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium">Our Location</h3>
+                                <p class="text-gray-600">123 Cleaning Way, Sacramento, CA 95814</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-full bg-emerald-100 text-emerald-600">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium">Phone</h3>
+                                <p class="text-gray-600">(916) 555-1234</p>
+                                <p class="text-sm text-gray-500">Monday - Saturday, 8am - 6pm</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-full bg-emerald-100 text-emerald-600">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium">Email</h3>
+                                <p class="text-gray-600">info@sacelitecleaning.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10">
+                        <h3 class="text-xl font-medium mb-4">Service Area</h3>
+                        <p class="text-gray-600 mb-4">We proudly serve all of Sacramento and surrounding areas including:</p>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
+                                <span>Downtown</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
+                                <span>Midtown</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
+                                <span>East Sac</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
+                                <span>Land Park</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
+                                <span>Curtis Park</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
+                                <span>Tahoe Park</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold mb-6">Request a Free Quote</h3>
+                        <form id="contactForm">
+                            <div class="mb-6">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="service" class="block text-gray-700 font-medium mb-2">Service Needed</label>
+                                <select id="service" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
+                                    <option value="upholstery">Upholstery Cleaning</option>
+                                    <option value="leather">Leather Cleaning</option>
+                                    <option value="mattress">Mattress Cleaning</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                                Submit Request
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600">Find answers to common questions about our furniture cleaning services.</p>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full flex justify-between items-center p-6 text-left font-medium text-gray-800 hover:bg-gray-50 focus:outline-none">
+                        <span>How often should I have my furniture professionally cleaned?</span>
+                        <i class="fas fa-chevron-down text-emerald-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 hidden">
+                        <p class="text-gray-600">We recommend having your upholstery professionally cleaned every 12-18 months for optimal maintenance. High-traffic furniture or homes with pets/children may benefit from more frequent cleaning every 6-12 months.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full flex justify-between items-center p-6 text-left font-medium text-gray-800 hover:bg-gray-50 focus:outline-none">
+                        <span>Will the cleaning process remove all stains?</span>
+                        <i class="fas fa-chevron-down text-emerald-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 hidden">
+                        <p class="text-gray-600">While we can remove most common stains, some may be permanent depending on the type of stain, fabric, and how long it's been set. Our technicians will evaluate each stain and use specialized treatments to achieve the best possible results.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full flex justify-between items-center p-6 text-left font-medium text-gray-800 hover:bg-gray-50 focus:outline-none">
+                        <span>How long does it take for furniture to dry after cleaning?</span>
+                        <i class="fas fa-chevron-down text-emerald-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 hidden">
+                        <p class="text-gray-600">Drying times vary based on fabric type, humidity, and airflow. Typically, upholstery dries in 4-6 hours, while deeper cleaning may take 6-12 hours. We use powerful extraction equipment to minimize moisture and speed drying time.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full flex justify-between items-center p-6 text-left font-medium text-gray-800 hover:bg-gray-50 focus:outline-none">
+                        <span>Are your cleaning products safe for pets and children?</span>
+                        <i class="fas fa-chevron-down text-emerald-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 hidden">
+                        <p class="text-gray-600">Absolutely! We use eco-friendly, non-toxic cleaning solutions that are certified safe for homes with children and pets. Our products are free from harsh chemicals, dyes, and perfumes that could cause irritation.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-question w-full flex justify-between items-center p-6 text-left font-medium text-gray-800 hover:bg-gray-50 focus:outline-none">
+                        <span>Do I need to prepare my furniture before your arrival?</span>
+                        <i class="fas fa-chevron-down text-emerald-600 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer px-6 pb-6 hidden">
+                        <p class="text-gray-600">We recommend removing personal items from the furniture and clearing the area around it for easy access. If possible, identify any stains you'd like us to focus on. Our technicians will handle all other preparations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Column 1 -->
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-3">SEC</div>
+                        <h3 class="text-xl font-bold">Sacramento Elite Cleaning</h3>
+                    </div>
+                    <p class="text-gray-400 mb-6">Professional furniture cleaning services in Sacramento, CA. Bringing new life to your upholstery with eco-friendly solutions.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-yelp"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-google"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition duration-300">Testimonials</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Upholstery Cleaning</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Leather Cleaning</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Mattress Cleaning</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Stain Removal</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Odor Elimination</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Contact Info</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-emerald-600 mt-1 mr-3"></i>
+                            <span class="text-gray-400">123 Cleaning Way<br>Sacramento, CA 95814</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone text-emerald-600 mr-3"></i>
+                            <a href="tel:+19165551234" class="text-gray-400 hover:text-white transition duration-300">(916) 555-1234</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-emerald-600 mr-3"></i>
+                            <a href="mailto:info@sacelitecleaning.com" class="text-gray-400 hover:text-white transition duration-300">info@sacelitecleaning.com</a>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock text-emerald-600 mr-3"></i>
+                            <span class="text-gray-400">Mon-Sat: 8am - 6pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 mb-4 md:mb-0">© 2023 Sacramento Elite Cleaning. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-white transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-500 hover:text-white transition duration-300">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="#contact" class="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full p-4 shadow-lg flex items-center justify-center animate-bounce-slow">
+            <i class="fas fa-calendar-alt text-xl"></i>
+        </a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // FAQ accordion
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                // Toggle answer visibility
+                answer.classList.toggle('hidden');
+                
+                // Rotate icon
+                if (answer.classList.contains('hidden')) {
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    icon.style.transform = 'rotate(180deg)';
+                }
+                
+                // Close other open answers
+                faqQuestions.forEach(q => {
+                    if (q !== question) {
+                        q.nextElementSibling.classList.add('hidden');
+                        q.querySelector('i').style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the data to your server
+            // For demo purposes, we'll just show an alert
+            alert(`Thank you, ${name}! Your request for ${service} cleaning has been received. We'll contact you shortly at ${phone} or ${email}.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
