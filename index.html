@@ -3,583 +3,734 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sacramento Elite Furniture Cleaning | Professional Upholstery Care</title>
+    <title>Sacramento Web Development | Modern Digital Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .hero-gradient {
-            background: linear-gradient(135deg, rgba(22, 101, 52, 0.9) 0%, rgba(16, 185, 129, 0.8) 100%);
+    <script src="https://cdn.jsdelivr.net/npm/typed.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        accent: '#f43f5e',
+                        secondary: '#0f172a',
+                        accent2: '#8b5cf6',
+                        accent3: '#06b6d4',
+                        dark: '#0f172a',
+                        light: '#f8fafc'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'spin-slow': 'spin 8s linear infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
         }
-        .service-card:hover {
-            transform: translateY(-5px);
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradient 8s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        .custom-shape {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .hover-scale {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hover-scale:hover {
+            transform: scale(1.05) translateY(-5px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        .testimonial-card {
-            transition: all 0.3s ease;
+
+        .text-gradient {
+            background: linear-gradient(45deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .testimonial-card:hover {
-            transform: scale(1.03);
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
         }
-        .nav-link {
+
+        .swiper {
+            width: 100%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            height: 300px;
+            transition: transform 0.3s ease;
+        }
+
+        .swiper-slide:hover {
+            transform: scale(1.05);
+        }
+
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .custom-border {
             position: relative;
         }
-        .nav-link:after {
+
+        .custom-border::after {
             content: '';
             position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
+            bottom: -10px;
             left: 0;
-            background-color: #10b981;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover:after {
             width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
         }
-        .animate-bounce-slow {
-            animation: bounce 2s infinite;
+
+        .custom-border:hover::after {
+            transform: scaleX(1);
         }
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .gradient-border {
+            position: relative;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(45deg, #6366f1, #8b5cf6) border-box;
+            border: 2px solid transparent;
+            border-radius: 1rem;
+        }
+
+        .blur-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
+            filter: blur(100px);
+            z-index: -1;
         }
     </style>
 </head>
-<body class="font-sans antialiased text-gray-800">
-    <!-- Header/Navigation -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center">
-                <div class="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-3">SEC</div>
-                <h1 class="text-xl font-bold text-gray-800">Sacramento Elite Cleaning</h1>
-            </div>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#home" class="nav-link text-gray-600 hover:text-emerald-600">Home</a>
-                <a href="#services" class="nav-link text-gray-600 hover:text-emerald-600">Services</a>
-                <a href="#about" class="nav-link text-gray-600 hover:text-emerald-600">About</a>
-                <a href="#testimonials" class="nav-link text-gray-600 hover:text-emerald-600">Testimonials</a>
-                <a href="#contact" class="nav-link text-gray-600 hover:text-emerald-600">Contact</a>
-            </nav>
-            <div class="hidden md:block">
-                <a href="#contact" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-full font-medium transition duration-300">Book Now</a>
-            </div>
-            <button id="mobile-menu-button" class="md:hidden text-gray-600">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
-            <div class="flex flex-col space-y-3">
-                <a href="#home" class="text-gray-600 hover:text-emerald-600 py-2">Home</a>
-                <a href="#services" class="text-gray-600 hover:text-emerald-600 py-2">Services</a>
-                <a href="#about" class="text-gray-600 hover:text-emerald-600 py-2">About</a>
-                <a href="#testimonials" class="text-gray-600 hover:text-emerald-600 py-2">Testimonials</a>
-                <a href="#contact" class="text-gray-600 hover:text-emerald-600 py-2">Contact</a>
-                <a href="#contact" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-full font-medium text-center transition duration-300">Book Now</a>
+<body class="bg-light">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-effect">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-gradient">Sacramento Web</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-dark hover:text-primary transition-colors custom-border">Home</a>
+                    <a href="#services" class="text-dark hover:text-primary transition-colors custom-border">Services</a>
+                    <a href="#portfolio" class="text-dark hover:text-primary transition-colors custom-border">Portfolio</a>
+                    <a href="#process" class="text-dark hover:text-primary transition-colors custom-border">Process</a>
+                    <a href="#contact" class="text-dark hover:text-primary transition-colors custom-border">Contact</a>
+                </div>
+                <button class="md:hidden text-dark">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
             </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-gradient text-white py-20 md:py-32">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6">Professional Furniture Cleaning in Sacramento</h1>
-                <p class="text-xl mb-8">Revitalize your furniture with our eco-friendly cleaning solutions. We bring back the beauty and extend the life of your upholstery.</p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#contact" class="bg-white text-emerald-600 hover:bg-gray-100 px-8 py-3 rounded-full font-bold text-center transition duration-300">Schedule Service</a>
-                    <a href="tel:+19165551234" class="border-2 border-white hover:bg-white hover:text-emerald-600 px-8 py-3 rounded-full font-bold text-center transition duration-300">
-                        <i class="fas fa-phone mr-2"></i> (916) 555-1234
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="blur-bg"></div>
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute w-96 h-96 bg-primary/20 rounded-full -top-48 -left-48 animate-float"></div>
+            <div class="absolute w-96 h-96 bg-accent/20 rounded-full -bottom-48 -right-48 animate-float" style="animation-delay: -2s"></div>
+            <div class="absolute w-64 h-64 bg-accent2/20 rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 animate-float" style="animation-delay: -4s"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 gradient-text">
+                    We Create Digital
+                    <span class="typed-text"></span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-12">
+                    Transform your ideas into stunning digital experiences with our expert web development team in Sacramento.
+                </p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                    <div class="glass-effect p-6 rounded-xl hover-scale">
+                        <div class="text-4xl font-bold text-primary mb-2" data-count="150">0</div>
+                        <div class="text-gray-600">Projects Completed</div>
+                    </div>
+                    <div class="glass-effect p-6 rounded-xl hover-scale">
+                        <div class="text-4xl font-bold text-accent mb-2" data-count="120">0</div>
+                        <div class="text-gray-600">Happy Clients</div>
+                    </div>
+                    <div class="glass-effect p-6 rounded-xl hover-scale">
+                        <div class="text-4xl font-bold text-accent2 mb-2" data-count="8">0</div>
+                        <div class="text-gray-600">Years Experience</div>
+                    </div>
+                    <div class="glass-effect p-6 rounded-xl hover-scale">
+                        <div class="text-4xl font-bold text-accent3 mb-2" data-count="15">0</div>
+                        <div class="text-gray-600">Team Members</div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-center gap-4">
+                    <a href="#contact" class="px-8 py-4 bg-primary text-white rounded-full hover:bg-accent2 transition-colors duration-300 transform hover:scale-105">
+                        Get Started
+                    </a>
+                    <a href="#portfolio" class="px-8 py-4 border-2 border-primary text-primary rounded-full hover:bg-primary hover:text-white transition-all duration-300 transform hover:scale-105">
+                        View Our Work
                     </a>
                 </div>
             </div>
-            <div class="md:w-1/2 flex justify-center">
-                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Professional cleaning furniture" class="rounded-lg shadow-xl w-full max-w-md">
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-slow">
+            <i class="fas fa-chevron-down text-2xl text-primary"></i>
+        </div>
+    </section>
+
+    <!-- Showcase Section -->
+    <section class="py-20 bg-white px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-primary mb-16">
+                Our websites are 100% responsive and look great on any device
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8 items-center">
+                <div class="text-center">
+                    <div class="relative mx-auto w-48 h-96 bg-gray-800 rounded-[2rem] p-2 shadow-xl">
+                        <div class="w-full h-full bg-white rounded-[1.5rem] overflow-hidden">
+                            <iframe src="index.html" class="w-full h-full scale-[0.2] origin-top-left" style="transform-origin: top left; width: 500%; height: 500%;"></iframe>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-600">Mobile View</p>
+                </div>
+                <div class="text-center">
+                    <div class="relative mx-auto w-64 h-80 bg-gray-800 rounded-[2rem] p-2 shadow-xl">
+                        <div class="w-full h-full bg-white rounded-[1.5rem] overflow-hidden">
+                            <iframe src="index.html" class="w-full h-full scale-[0.3] origin-top-left" style="transform-origin: top left; width: 333%; height: 333%;"></iframe>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-600">Tablet View</p>
+                </div>
+                <div class="text-center">
+                    <div class="relative mx-auto w-96 h-64 bg-gray-800 rounded-[2rem] p-2 shadow-xl">
+                        <div class="w-full h-full bg-white rounded-[1.5rem] overflow-hidden">
+                            <iframe src="index.html" class="w-full h-full scale-[0.4] origin-top-left" style="transform-origin: top left; width: 250%; height: 250%;"></iframe>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-gray-600">Desktop View</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Trust Indicators -->
-    <section class="bg-gray-50 py-8">
+    <!-- Process Section -->
+    <section id="process" class="py-20 relative overflow-hidden">
+        <div class="blur-bg"></div>
         <div class="container mx-auto px-4">
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-                <div class="flex items-center">
-                    <i class="fas fa-shield-alt text-emerald-600 text-3xl mr-3"></i>
-                    <span class="font-medium">Certified Professionals</span>
-                </div>
-                <div class="flex items-center">
-                    <i class="fas fa-leaf text-emerald-600 text-3xl mr-3"></i>
-                    <span class="font-medium">Eco-Friendly Solutions</span>
-                </div>
-                <div class="flex items-center">
-                    <i class="fas fa-star text-emerald-600 text-3xl mr-3"></i>
-                    <span class="font-medium">5-Star Rated Service</span>
-                </div>
-                <div class="flex items-center">
-                    <i class="fas fa-clock text-emerald-600 text-3xl mr-3"></i>
-                    <span class="font-medium">Same Day Availability</span>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Our Process</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    We follow a proven development process to ensure your project's success
+                </p>
+            </div>
+
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary via-accent to-accent2"></div>
+
+                <!-- Process Steps -->
+                <div class="space-y-12">
+                    <!-- Step 1 -->
+                    <div class="relative">
+                        <div class="flex items-center">
+                            <div class="w-1/2 pr-12 text-right">
+                                <div class="glass-effect p-6 rounded-xl inline-block">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fas fa-comments text-2xl text-primary"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold mb-2 text-gradient">Consultation</h3>
+                                    <p class="text-gray-600">
+                                        We begin with a detailed discussion to understand your goals, requirements, and vision
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold">1</span>
+                            </div>
+                            <div class="w-1/2 pl-12"></div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative">
+                        <div class="flex items-center">
+                            <div class="w-1/2 pr-12"></div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-accent rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold">2</span>
+                            </div>
+                            <div class="w-1/2 pl-12">
+                                <div class="glass-effect p-6 rounded-xl inline-block">
+                                    <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fas fa-pencil-ruler text-2xl text-accent"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold mb-2 text-gradient">Design</h3>
+                                    <p class="text-gray-600">
+                                        Our designers create wireframes and mockups to visualize your project
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative">
+                        <div class="flex items-center">
+                            <div class="w-1/2 pr-12 text-right">
+                                <div class="glass-effect p-6 rounded-xl inline-block">
+                                    <div class="w-12 h-12 bg-accent2/10 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fas fa-code text-2xl text-accent2"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold mb-2 text-gradient">Development</h3>
+                                    <p class="text-gray-600">
+                                        Our developers bring the design to life with clean, efficient code
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-accent2 rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold">3</span>
+                            </div>
+                            <div class="w-1/2 pl-12"></div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative">
+                        <div class="flex items-center">
+                            <div class="w-1/2 pr-12"></div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-accent3 rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold">4</span>
+                            </div>
+                            <div class="w-1/2 pl-12">
+                                <div class="glass-effect p-6 rounded-xl inline-block">
+                                    <div class="w-12 h-12 bg-accent3/10 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fas fa-vial text-2xl text-accent3"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold mb-2 text-gradient">Testing</h3>
+                                    <p class="text-gray-600">
+                                        Rigorous testing ensures your project is bug-free and performs optimally
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative">
+                        <div class="flex items-center">
+                            <div class="w-1/2 pr-12 text-right">
+                                <div class="glass-effect p-6 rounded-xl inline-block">
+                                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fas fa-rocket text-2xl text-primary"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold mb-2 text-gradient">Launch</h3>
+                                    <p class="text-gray-600">
+                                        We deploy your project and ensure everything runs smoothly
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold">5</span>
+                            </div>
+                            <div class="w-1/2 pl-12"></div>
+                        </div>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="relative">
+                        <div class="flex items-center">
+                            <div class="w-1/2 pr-12"></div>
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-accent rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold">6</span>
+                            </div>
+                            <div class="w-1/2 pl-12">
+                                <div class="glass-effect p-6 rounded-xl inline-block">
+                                    <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center mb-4">
+                                        <i class="fas fa-headset text-2xl text-accent"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold mb-2 text-gradient">Support</h3>
+                                    <p class="text-gray-600">
+                                        We provide ongoing support and maintenance to keep your project running perfectly
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-white">
+    <section id="services" class="py-20 relative overflow-hidden">
+        <div class="blur-bg"></div>
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Premium Cleaning Services</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We specialize in restoring all types of furniture to their original beauty using advanced techniques and safe cleaning products.</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    We offer comprehensive web development solutions tailored to your business needs
+                </p>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1556911220-e15f29a6bfff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Upholstery Cleaning" class="w-full h-full object-cover">
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Standard Website -->
+                <div class="gradient-border p-8 rounded-xl bg-white/80 backdrop-blur-sm card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop-code text-3xl text-primary"></i>
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-emerald-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-couch text-emerald-600 text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold">Upholstery Cleaning</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">Deep cleaning for all fabric furniture including sofas, chairs, and sectionals. Removes dirt, stains, and allergens.</p>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
-                                <span>Stain removal</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
-                                <span>Odor elimination</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
-                                <span>Fabric protection</span>
-                            </li>
-                        </ul>
-                        <a href="#contact" class="text-emerald-600 font-medium hover:text-emerald-700 inline-flex items-center">
-                            Learn more <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gradient">Standard Website</h3>
+                    <p class="text-gray-600 mb-6">
+                        Perfect for small businesses and startups looking to establish their online presence
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            Responsive Design
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            Contact Form
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            SEO Optimization
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-primary mr-3"></i>
+                            Social Media Integration
+                        </li>
+                    </ul>
+                    <div class="text-3xl font-bold text-primary mb-6">$999</div>
+                    <a href="#contact" class="block w-full py-3 bg-primary text-white text-center rounded-full hover:bg-accent2 transition-colors duration-300">
+                        Get Started
+                    </a>
                 </div>
-                
-                <!-- Service 2 -->
-                <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Leather Cleaning" class="w-full h-full object-cover">
+
+                <!-- Custom Design Website -->
+                <div class="gradient-border p-8 rounded-xl bg-white/80 backdrop-blur-sm card-hover transform scale-105">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-accent text-white px-4 py-1 rounded-full text-sm">
+                        Most Popular
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-emerald-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-tshirt text-emerald-600 text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold">Leather Care</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">Specialized cleaning and conditioning for leather furniture to prevent cracking and maintain suppleness.</p>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
-                                <span>Gentle cleaning</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
-                                <span>Conditioning treatment</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
-                                <span>UV protection</span>
-                            </li>
-                        </ul>
-                        <a href="#contact" class="text-emerald-600 font-medium hover:text-emerald-700 inline-flex items-center">
-                            Learn more <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
+                    <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-paint-brush text-3xl text-accent"></i>
                     </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gradient">Custom Design Website</h3>
+                    <p class="text-gray-600 mb-6">
+                        Tailored solutions for businesses seeking unique and engaging web experiences
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-accent mr-3"></i>
+                            Custom Design
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-accent mr-3"></i>
+                            Advanced Animations
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-accent mr-3"></i>
+                            Content Management
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-accent mr-3"></i>
+                            E-commerce Integration
+                        </li>
+                    </ul>
+                    <div class="text-3xl font-bold text-accent mb-6">$2,499</div>
+                    <a href="#contact" class="block w-full py-3 bg-accent text-white text-center rounded-full hover:bg-accent2 transition-colors duration-300">
+                        Get Started
+                    </a>
                 </div>
-                
-                <!-- Service 3 -->
-                <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300">
-                    <div class="h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Mattress Cleaning" class="w-full h-full object-cover">
+
+                <!-- Enterprise Solution -->
+                <div class="gradient-border p-8 rounded-xl bg-white/80 backdrop-blur-sm card-hover">
+                    <div class="w-16 h-16 bg-accent2/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-rocket text-3xl text-accent2"></i>
                     </div>
-                    <div class="p-6">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-emerald-100 p-3 rounded-full mr-4">
-                                <i class="fas fa-bed text-emerald-600 text-xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold">Mattress Cleaning</h3>
-                        </div>
-                        <p class="text-gray-600 mb-4">Sanitize and refresh your mattress to eliminate dust mites, allergens, and odors for better sleep hygiene.</p>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
-                                <span>Allergen removal</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
-                                <span>Stain treatment</span>
-                            </li>
-                            <li class="flex items-center">
-                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
-                                <span>Sanitization</span>
-                            </li>
-                        </ul>
-                        <a href="#contact" class="text-emerald-600 font-medium hover:text-emerald-700 inline-flex items-center">
-                            Learn more <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gradient">Enterprise Solution</h3>
+                    <p class="text-gray-600 mb-6">
+                        Comprehensive web solutions for large businesses with complex requirements
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-accent2 mr-3"></i>
+                            Custom Development
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-accent2 mr-3"></i>
+                            API Integration
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-accent2 mr-3"></i>
+                            Advanced Security
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-accent2 mr-3"></i>
+                            24/7 Support
+                        </li>
+                    </ul>
+                    <div class="text-3xl font-bold text-accent2 mb-6">Custom</div>
+                    <a href="#contact" class="block w-full py-3 bg-accent2 text-white text-center rounded-full hover:bg-accent3 transition-colors duration-300">
+                        Contact Us
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row items-center">
-                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Why Choose Sacramento Elite Cleaning</h2>
-                    <p class="text-xl text-gray-600 mb-8">We're committed to delivering exceptional results with every cleaning service. Here's what sets us apart:</p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="flex items-center justify-center h-10 w-10 rounded-full bg-emerald-100 text-emerald-600">
-                                    <i class="fas fa-award"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium">Certified Experts</h3>
-                                <p class="text-gray-600">Our technicians are IICRC certified with extensive training in fabric and leather care.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="flex items-center justify-center h-10 w-10 rounded-full bg-emerald-100 text-emerald-600">
-                                    <i class="fas fa-leaf"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium">Eco-Friendly Solutions</h3>
-                                <p class="text-gray-600">We use green-certified cleaning products that are safe for your family and pets.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="flex items-center justify-center h-10 w-10 rounded-full bg-emerald-100 text-emerald-600">
-                                    <i class="fas fa-truck"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium">Mobile Service</h3>
-                                <p class="text-gray-600">We come to you with our fully equipped vans, saving you time and hassle.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="flex items-center justify-center h-10 w-10 rounded-full bg-emerald-100 text-emerald-600">
-                                    <i class="fas fa-shield-alt"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium">Satisfaction Guarantee</h3>
-                                <p class="text-gray-600">If you're not completely satisfied, we'll re-clean at no additional charge.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="lg:w-1/2 relative">
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1600494603989-9650cf6ddd3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Professional cleaner at work" class="rounded-lg w-full">
-                    </div>
-                    <div class="absolute -bottom-6 -left-6 bg-emerald-600 text-white p-6 rounded-lg shadow-lg w-64">
-                        <div class="text-4xl font-bold mb-2">15+</div>
-                        <div class="text-lg">Years of Experience</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-white">
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 relative overflow-hidden">
+        <div class="blur-bg"></div>
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Don't just take our word for it. Here's what Sacramento homeowners have to say about our services.</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Our Recent Work</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Explore our latest projects and see how we've helped businesses achieve their digital goals
+                </p>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-card bg-gray-50 p-8 rounded-lg">
-                    <div class="flex items-center mb-6">
-                        <div class="flex-shrink-0">
-                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah J.">
-                        </div>
-                        <div class="ml-4">
-                            <h3 class="text-lg font-medium">Sarah J.</h3>
-                            <div class="flex text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 italic mb-6">"I was amazed at how clean my white sofa looked after Sacramento Elite Cleaning worked on it. They removed stains I thought were permanent. The technician was professional and explained everything clearly."</p>
-                    <div class="text-sm text-gray-500">East Sacramento</div>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="testimonial-card bg-gray-50 p-8 rounded-lg">
-                    <div class="flex items-center mb-6">
-                        <div class="flex-shrink-0">
-                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael T.">
-                        </div>
-                        <div class="ml-4">
-                            <h3 class="text-lg font-medium">Michael T.</h3>
-                            <div class="flex text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 italic mb-6">"Our leather sectional looks brand new after their treatment. They arrived on time, were very careful with our furniture, and left no mess behind. Will definitely use them again!"</p>
-                    <div class="text-sm text-gray-500">Land Park</div>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="testimonial-card bg-gray-50 p-8 rounded-lg">
-                    <div class="flex items-center mb-6">
-                        <div class="flex-shrink-0">
-                            <img class="h-12 w-12 rounded-full" src="https://randomuser.me/api/portraits/women/65.jpg" alt="Jennifer L.">
-                        </div>
-                        <div class="ml-4">
-                            <h3 class="text-lg font-medium">Jennifer L.</h3>
-                            <div class="flex text-yellow-400">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 italic mb-6">"As someone with allergies, I appreciate how thorough they were with my mattress cleaning. My sleep has improved dramatically since they treated my bedroom furniture. Highly recommend!"</p>
-                    <div class="text-sm text-gray-500">Midtown</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="py-16 bg-emerald-600 text-white">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Refresh Your Furniture?</h2>
-            <p class="text-xl mb-8 max-w-3xl mx-auto">Contact us today to schedule your professional furniture cleaning service in Sacramento.</p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="#contact" class="bg-white text-emerald-600 hover:bg-gray-100 px-8 py-3 rounded-full font-bold transition duration-300">Get a Free Quote</a>
-                <a href="tel:+19165551234" class="border-2 border-white hover:bg-white hover:text-emerald-600 px-8 py-3 rounded-full font-bold transition duration-300">
-                    <i class="fas fa-phone mr-2"></i> Call Now: (916) 555-1234
+            <div class="swiper portfolio-slider">
+                <div class="swiper-wrapper">
+                    <!-- Project 1 -->
+                    <div class="swiper-slide">
+                        <div class="relative group overflow-hidden rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80" 
+                                 alt="E-commerce Website" 
+                                 class="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div class="absolute bottom-0 left-0 right-0 p-6">
+                                    <h3 class="text-2xl font-bold text-white mb-2">E-commerce Platform</h3>
+                                    <p class="text-gray-200 mb-4">Modern online store with advanced features</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">React</span>
+                                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-sm">Node.js</span>
+                                        <span class="px-3 py-1 bg-accent2/20 text-accent2 rounded-full text-sm">MongoDB</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="swiper-slide">
+                        <div class="relative group overflow-hidden rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1115&q=80" 
+                                 alt="Business Dashboard" 
+                                 class="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div class="absolute bottom-0 left-0 right-0 p-6">
+                                    <h3 class="text-2xl font-bold text-white mb-2">Business Dashboard</h3>
+                                    <p class="text-gray-200 mb-4">Real-time analytics and reporting platform</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Vue.js</span>
+                                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-sm">Firebase</span>
+                                        <span class="px-3 py-1 bg-accent2/20 text-accent2 rounded-full text-sm">Chart.js</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="swiper-slide">
+                        <div class="relative group overflow-hidden rounded-2xl">
+                            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" 
+                                 alt="Mobile App" 
+                                 class="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div class="absolute bottom-0 left-0 right-0 p-6">
+                                    <h3 class="text-2xl font-bold text-white mb-2">Mobile App</h3>
+                                    <p class="text-gray-200 mb-4">Cross-platform fitness tracking application</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">React Native</span>
+                                        <span class="px-3 py-1 bg-accent/20 text-accent rounded-full text-sm">Redux</span>
+                                        <span class="px-3 py-1 bg-accent2/20 text-accent2 rounded-full text-sm">GraphQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#contact" class="inline-block px-8 py-4 bg-primary text-white rounded-full hover:bg-accent2 transition-colors duration-300 transform hover:scale-105">
+                    Start Your Project
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-50">
+    <section id="contact" class="py-20 relative overflow-hidden">
+        <div class="blur-bg"></div>
         <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row">
-                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Contact Us</h2>
-                    <p class="text-xl text-gray-600 mb-8">Have questions or ready to book a service? Reach out to us using the form or contact details below.</p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="flex items-center justify-center h-10 w-10 rounded-full bg-emerald-100 text-emerald-600">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium">Our Location</h3>
-                                <p class="text-gray-600">123 Cleaning Way, Sacramento, CA 95814</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="flex items-center justify-center h-10 w-10 rounded-full bg-emerald-100 text-emerald-600">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium">Phone</h3>
-                                <p class="text-gray-600">(916) 555-1234</p>
-                                <p class="text-sm text-gray-500">Monday - Saturday, 8am - 6pm</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="flex-shrink-0 mt-1">
-                                <div class="flex items-center justify-center h-10 w-10 rounded-full bg-emerald-100 text-emerald-600">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                            </div>
-                            <div class="ml-4">
-                                <h3 class="text-lg font-medium">Email</h3>
-                                <p class="text-gray-600">info@sacelitecleaning.com</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-10">
-                        <h3 class="text-xl font-medium mb-4">Service Area</h3>
-                        <p class="text-gray-600 mb-4">We proudly serve all of Sacramento and surrounding areas including:</p>
-                        <div class="grid grid-cols-2 gap-2">
-                            <div class="flex items-center">
-                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
-                                <span>Downtown</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
-                                <span>Midtown</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
-                                <span>East Sac</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
-                                <span>Land Park</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
-                                <span>Curtis Park</span>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-check-circle text-emerald-600 mr-2"></i>
-                                <span>Tahoe Park</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="lg:w-1/2">
-                    <div class="bg-white p-8 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-bold mb-6">Request a Free Quote</h3>
-                        <form id="contactForm">
-                            <div class="mb-6">
-                                <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
-                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500" required>
-                            </div>
-                            <div class="mb-6">
-                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500" required>
-                            </div>
-                            <div class="mb-6">
-                                <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
-                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500" required>
-                            </div>
-                            <div class="mb-6">
-                                <label for="service" class="block text-gray-700 font-medium mb-2">Service Needed</label>
-                                <select id="service" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
-                                    <option value="upholstery">Upholstery Cleaning</option>
-                                    <option value="leather">Leather Cleaning</option>
-                                    <option value="mattress">Mattress Cleaning</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            <div class="mb-6">
-                                <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
-                                Submit Request
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4 max-w-4xl">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
-                <p class="text-xl text-gray-600">Find answers to common questions about our furniture cleaning services.</p>
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Get In Touch</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Ready to start your project? Contact us today for a free consultation
+                </p>
             </div>
-            
-            <div class="space-y-4">
-                <!-- FAQ Item 1 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full flex justify-between items-center p-6 text-left font-medium text-gray-800 hover:bg-gray-50 focus:outline-none">
-                        <span>How often should I have my furniture professionally cleaned?</span>
-                        <i class="fas fa-chevron-down text-emerald-600 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 hidden">
-                        <p class="text-gray-600">We recommend having your upholstery professionally cleaned every 12-18 months for optimal maintenance. High-traffic furniture or homes with pets/children may benefit from more frequent cleaning every 6-12 months.</p>
-                    </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="glass-effect p-8 rounded-xl">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="name">Name</label>
+                                <input type="text" id="name" name="name" 
+                                       class="w-full px-4 py-3 rounded-lg bg-white/50 border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                       placeholder="Your name">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2" for="email">Email</label>
+                                <input type="email" id="email" name="email" 
+                                       class="w-full px-4 py-3 rounded-lg bg-white/50 border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                       placeholder="Your email">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2" for="project">Project Type</label>
+                            <select id="project" name="project" 
+                                    class="w-full px-4 py-3 rounded-lg bg-white/50 border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all">
+                                <option value="">Select project type</option>
+                                <option value="standard">Standard Website</option>
+                                <option value="custom">Custom Design Website</option>
+                                <option value="enterprise">Enterprise Solution</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2" for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" 
+                                      class="w-full px-4 py-3 rounded-lg bg-white/50 border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
+                                      placeholder="Tell us about your project"></textarea>
+                        </div>
+                        <button type="submit" 
+                                class="w-full py-4 bg-primary text-white rounded-full hover:bg-accent2 transition-colors duration-300 transform hover:scale-105">
+                            Send Message
+                        </button>
+                    </form>
                 </div>
-                
-                <!-- FAQ Item 2 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full flex justify-between items-center p-6 text-left font-medium text-gray-800 hover:bg-gray-50 focus:outline-none">
-                        <span>Will the cleaning process remove all stains?</span>
-                        <i class="fas fa-chevron-down text-emerald-600 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 hidden">
-                        <p class="text-gray-600">While we can remove most common stains, some may be permanent depending on the type of stain, fabric, and how long it's been set. Our technicians will evaluate each stain and use specialized treatments to achieve the best possible results.</p>
+
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div class="glass-effect p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold mb-6 text-gradient">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-xl text-primary"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-gray-800">Address</h4>
+                                    <p class="text-gray-600">123 Web Dev Street, Sacramento, CA 95814</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-phone text-xl text-accent"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-gray-800">Phone</h4>
+                                    <p class="text-gray-600">+1 (916) 555-0123</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-accent2/10 rounded-full flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-envelope text-xl text-accent2"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-gray-800">Email</h4>
+                                    <p class="text-gray-600">contact@sacramentoweb.com</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- FAQ Item 3 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full flex justify-between items-center p-6 text-left font-medium text-gray-800 hover:bg-gray-50 focus:outline-none">
-                        <span>How long does it take for furniture to dry after cleaning?</span>
-                        <i class="fas fa-chevron-down text-emerald-600 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 hidden">
-                        <p class="text-gray-600">Drying times vary based on fabric type, humidity, and airflow. Typically, upholstery dries in 4-6 hours, while deeper cleaning may take 6-12 hours. We use powerful extraction equipment to minimize moisture and speed drying time.</p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 4 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full flex justify-between items-center p-6 text-left font-medium text-gray-800 hover:bg-gray-50 focus:outline-none">
-                        <span>Are your cleaning products safe for pets and children?</span>
-                        <i class="fas fa-chevron-down text-emerald-600 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 hidden">
-                        <p class="text-gray-600">Absolutely! We use eco-friendly, non-toxic cleaning solutions that are certified safe for homes with children and pets. Our products are free from harsh chemicals, dyes, and perfumes that could cause irritation.</p>
-                    </div>
-                </div>
-                
-                <!-- FAQ Item 5 -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <button class="faq-question w-full flex justify-between items-center p-6 text-left font-medium text-gray-800 hover:bg-gray-50 focus:outline-none">
-                        <span>Do I need to prepare my furniture before your arrival?</span>
-                        <i class="fas fa-chevron-down text-emerald-600 transition-transform duration-300"></i>
-                    </button>
-                    <div class="faq-answer px-6 pb-6 hidden">
-                        <p class="text-gray-600">We recommend removing personal items from the furniture and clearing the area around it for easy access. If possible, identify any stains you'd like us to focus on. Our technicians will handle all other preparations.</p>
+
+                    <!-- Social Media -->
+                    <div class="glass-effect p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold mb-6 text-gradient">Follow Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition-colors duration-300">
+                                <i class="fab fa-facebook-f text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center hover:bg-accent hover:text-white transition-colors duration-300">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-accent2/10 rounded-full flex items-center justify-center hover:bg-accent2 hover:text-white transition-colors duration-300">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 bg-accent3/10 rounded-full flex items-center justify-center hover:bg-accent3 hover:text-white transition-colors duration-300">
+                                <i class="fab fa-linkedin-in text-xl"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -587,176 +738,118 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white pt-16 pb-8">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-                <!-- Column 1 -->
+    <footer class="py-12 bg-dark text-white relative overflow-hidden">
+        <div class="blur-bg"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-3">SEC</div>
-                        <h3 class="text-xl font-bold">Sacramento Elite Cleaning</h3>
-                    </div>
-                    <p class="text-gray-400 mb-6">Professional furniture cleaning services in Sacramento, CA. Bringing new life to your upholstery with eco-friendly solutions.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <i class="fab fa-yelp"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <i class="fab fa-google"></i>
-                        </a>
-                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gradient">Sacramento Web</h3>
+                    <p class="text-gray-400">
+                        Creating digital experiences that drive results
+                    </p>
                 </div>
-                
-                <!-- Column 2 -->
                 <div>
-                    <h3 class="text-lg font-bold mb-6">Quick Links</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
-                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition duration-300">Testimonials</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Web Development</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">UI/UX Design</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">E-commerce</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">SEO</a></li>
                     </ul>
                 </div>
-                
-                <!-- Column 3 -->
                 <div>
-                    <h3 class="text-lg font-bold mb-6">Services</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Upholstery Cleaning</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Leather Cleaning</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Mattress Cleaning</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Stain Removal</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Odor Elimination</a></li>
+                    <h4 class="text-lg font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Portfolio</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Careers</a></li>
                     </ul>
                 </div>
-                
-                <!-- Column 4 -->
                 <div>
-                    <h3 class="text-lg font-bold mb-6">Contact Info</h3>
-                    <ul class="space-y-3">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt text-emerald-600 mt-1 mr-3"></i>
-                            <span class="text-gray-400">123 Cleaning Way<br>Sacramento, CA 95814</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone text-emerald-600 mr-3"></i>
-                            <a href="tel:+19165551234" class="text-gray-400 hover:text-white transition duration-300">(916) 555-1234</a>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope text-emerald-600 mr-3"></i>
-                            <a href="mailto:info@sacelitecleaning.com" class="text-gray-400 hover:text-white transition duration-300">info@sacelitecleaning.com</a>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-clock text-emerald-600 mr-3"></i>
-                            <span class="text-gray-400">Mon-Sat: 8am - 6pm</span>
-                        </li>
-                    </ul>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to our newsletter for updates</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" 
+                               class="flex-1 px-4 py-2 rounded-l-lg bg-white/10 border border-white/20 focus:outline-none focus:border-primary">
+                        <button type="submit" 
+                                class="px-6 py-2 bg-primary text-white rounded-r-lg hover:bg-accent2 transition-colors">
+                            Subscribe
+                        </button>
+                    </form>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-500 mb-4 md:mb-0">© 2023 Sacramento Elite Cleaning. All rights reserved.</p>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-500 hover:text-white transition duration-300">Privacy Policy</a>
-                    <a href="#" class="text-gray-500 hover:text-white transition duration-300">Terms of Service</a>
-                </div>
+            <div class="border-t border-white/10 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Sacramento Web. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Floating Action Button -->
-    <div class="fixed bottom-6 right-6 z-50">
-        <a href="#contact" class="bg-emerald-600 hover:bg-emerald-700 text-white rounded-full p-4 shadow-lg flex items-center justify-center animate-bounce-slow">
-            <i class="fas fa-calendar-alt text-xl"></i>
-        </a>
-    </div>
-
+    <!-- Initialize Swiper -->
     <script>
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        new Swiper('.portfolio-slider', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
         });
-        
-        // FAQ accordion
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const icon = question.querySelector('i');
-                
-                // Toggle answer visibility
-                answer.classList.toggle('hidden');
-                
-                // Rotate icon
-                if (answer.classList.contains('hidden')) {
-                    icon.style.transform = 'rotate(0deg)';
+
+        // Initialize Typed.js
+        new Typed('.typed-text', {
+            strings: ['Websites', 'Applications', 'Digital Experiences'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true
+        });
+
+        // Initialize ScrollReveal
+        ScrollReveal().reveal('.glass-effect', {
+            delay: 200,
+            distance: '20px',
+            duration: 1000,
+            easing: 'cubic-bezier(0.5, 0, 0, 1)',
+            origin: 'bottom'
+        });
+
+        // Initialize GSAP animations
+        gsap.from('.gradient-text', {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: 'power3.out'
+        });
+
+        // Animate stats
+        const stats = document.querySelectorAll('[data-count]');
+        stats.forEach(stat => {
+            const target = parseInt(stat.getAttribute('data-count'));
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    stat.textContent = target;
+                    clearInterval(timer);
                 } else {
-                    icon.style.transform = 'rotate(180deg)';
+                    stat.textContent = Math.floor(current);
                 }
-                
-                // Close other open answers
-                faqQuestions.forEach(q => {
-                    if (q !== question) {
-                        q.nextElementSibling.classList.add('hidden');
-                        q.querySelector('i').style.transform = 'rotate(0deg)';
-                    }
-                });
-            });
-        });
-        
-        // Form submission
-        const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value;
-            
-            // Here you would typically send the data to your server
-            // For demo purposes, we'll just show an alert
-            alert(`Thank you, ${name}! Your request for ${service} cleaning has been received. We'll contact you shortly at ${phone} or ${email}.`);
-            
-            // Reset form
-            contactForm.reset();
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                }
-            });
+            }, 50);
         });
     </script>
 </body>
-</html>
+</html> 
